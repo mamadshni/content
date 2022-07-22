@@ -1,0 +1,8 @@
+<section>
+
+  <div *ngFor="let item of (peoples | async)" class="people-item">
+    <p class="title"> {{item.fields.title}} </p>
+    <p> {{item.fields.description}} </p>
+  </div>
+
+</section>
