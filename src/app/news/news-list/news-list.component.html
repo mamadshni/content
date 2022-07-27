@@ -1,8 +1,8 @@
 <section>
 
-  <div *ngFor="let item of (news | async)" class="news-item">
+  <a *ngFor="let item of (news | async)" [routerLink]="item.sys.id" class="news-item">
     <p class="title"> {{item.fields.title}} </p>
     <p> {{item.fields.description}} </p>
-  </div>
+  </a>
 
 </section>

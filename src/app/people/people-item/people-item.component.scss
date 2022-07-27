@@ -1,5 +1,4 @@
 .news-item {
-  display:block;
   padding: 24px 36px;
   margin: 24px 36px;
   background: white;
@@ -10,4 +9,9 @@
 .title {
   font: normal 2em "Playfair Display SC", serif;
   margin-bottom: 24px;
+}
+
+.people-image {
+  object-fit: cover;
+  width: 100%;
 }

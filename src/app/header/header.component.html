@@ -2,8 +2,8 @@
   <h1>Header</h1>
   <nav>
 
-    <a routerLink="./main" routerLinkActive="active-link">Main</a>
-    <a routerLink="./news" routerLinkActive="active-link">News</a>
-    <a routerLink="./people" routerLinkActive="active-link">People</a>
+    <a [routerLink]="Page.Main" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Main</a>
+    <a [routerLink]="Page.News" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">News</a>
+    <a [routerLink]="Page.People" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">People</a>
   </nav>
 </header>

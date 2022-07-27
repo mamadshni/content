@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Page} from "../model/routes.model";
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public readonly Page = Page;
 }

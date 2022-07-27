@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Entry} from "contentful";
 import {ContentfulService} from "../../services/contentful.service";
 import {Observable} from "rxjs";
-import {People} from "../people.model";
+import {People} from "../../model/people.model";
 
 @Component({
   selector: 'app-people-list',
@@ -11,7 +11,6 @@ import {People} from "../people.model";
 })
 export class PeopleListComponent implements OnInit {
 
-  // @ts-ignore
   peoples : Observable<Entry<People>[]>;
 
   constructor(private contentful: ContentfulService) { }

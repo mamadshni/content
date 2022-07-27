@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Entry, EntryCollection} from 'contentful';
+import {Asset, Entry, EntryCollection} from 'contentful';
 import {environment} from "../../environments/environment";
 import {map, Observable} from "rxjs";
-import {News} from "../news/news.model";
-import {People} from "../people/people.model";
+import {News} from "../model/news.model";
+import {People} from "../model/people.model";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ContentfulService {
 
   public getNews(): Observable<Entry<News>[]> {
 
-    return this.http.get<EntryCollection<People>>(`${this.CONTENTFUL_URL}/entries?content_type=new`)
+    return this.getEntriesCollectionByContentType<News>('new')
       .pipe(
         map(response => response.items)
       )
@@ -26,17 +26,34 @@ export class ContentfulService {
 
   public getPeoples(): Observable<Entry<People>[]> {
 
-    return this.http.get<EntryCollection<People>>(`${this.CONTENTFUL_URL}/entries?content_type=people`)
+    return this.getEntriesCollectionByContentType<People>('people')
       .pipe(
         map(response => response.items)
       )
   }
 
-  public getAll() :Observable<Entry<any>[]> {
+
+  public getEntriesCollectionByContentType<T>(contentType: string) :Observable<EntryCollection<T>> {
+
+    return this.http.get<EntryCollection<T>>(`${this.CONTENTFUL_URL}/entries?content_type=${contentType}`)
+  }
+
+
+  public getEntryById<T>(itemId: string) :Observable<Entry<T>> {
+    return this.http.get<Entry<T>>(`${this.CONTENTFUL_URL}/entries/${itemId}`)
+  }
+
+
+  public getAssetsById(itemId: string) :Observable<Asset> {
+    return this.http.get<Asset>(`${this.CONTENTFUL_URL}/assets/${itemId}`)
+  }
+
+
+  public getEntries() :Observable<Entry<any>[]> {
 
     return this.http.get<EntryCollection<any>>(`${this.CONTENTFUL_URL}/entries`)
       .pipe(
-        map(response => response.items)
-    )
+        map( response => response.items)
+      )
   }
 }

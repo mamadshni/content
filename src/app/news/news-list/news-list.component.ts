@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Entry} from "contentful";
 import {ContentfulService} from "../../services/contentful.service";
 import {Observable} from "rxjs";
-import {News} from "../news.model";
+import {News} from "../../model/news.model";
 
 @Component({
   selector: 'app-news-list',

@@ -7,6 +7,6 @@ import {of} from "rxjs";
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  footerText = of(['test1','test2', 'test3']);
+  footerText = of(['footer 1','footer 2', 'footer 3']);
 
 }

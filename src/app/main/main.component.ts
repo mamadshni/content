@@ -10,13 +10,12 @@ import {Observable} from "rxjs";
 })
 export class MainComponent implements OnInit {
 
-  // @ts-ignore
   items : Observable<Entry<any>[]>;
 
   constructor(private contentful: ContentfulService) { }
 
   ngOnInit() {
-    this.items = this.contentful.getAll();
+    this.items = this.contentful.getEntries();
   }
 
 }

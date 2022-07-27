@@ -1,0 +1,10 @@
+<section>
+
+  <div class="news-item">
+    <p class="title"> {{peopleDetail.fields.title}} </p>
+    <p> {{peopleDetail.fields.description}} </p>
+
+    <img class="people-image" [imageLoader]="peopleDetail.fields.photo.sys.id">
+  </div>
+
+</section>
